@@ -9,7 +9,7 @@
 
     <application
         android:allowBackup="true"
-        android:name=".activity.App"
+        android:name=".application.App"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
