@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.antfortune.freeline'
+apply plugin: 'com.tencent.tinker.patch'
 
 android {
     compileSdkVersion 23
@@ -11,6 +12,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -19,9 +21,18 @@ android {
         }
     }
 }
+def gitSha() {
+    return '2.5.1'
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.0.1'
+    //optional, help to generate the final application
+    provided('com.tencent.tinker:tinker-android-anno:1.7.7')
+    //tinker's main Android lib
+    compile('com.tencent.tinker:tinker-android-lib:1.7.7')
+    compile('com.android.support:multidex:1.0.1')
 }
+
